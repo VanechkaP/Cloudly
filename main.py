@@ -43,9 +43,9 @@ def process_thumbnail(image_path: str):
 @dp.message(Command("start"))
 async def start_cmd(message: types.Message):
     await message.answer(
-        f"Привет, {message.from_user.first_name}! 🎵\n\n"
+        f"Привет, {message.from_user.first_name}! ✌️\n\n"
         "Я простой бот для прямого скачивания музыки из SoundCloud.\n"
-        "Просто **отправь мне ссылку** на трек!"
+        "Просто отправь мне ссылку на трек!"
     )
 
 
@@ -66,7 +66,7 @@ async def handle_link(message: types.Message):
     if user_id in user_cooldowns:
         last_time = user_cooldowns[user_id]
         if current_time - last_time < 3:  # 3 секунды кулдауна
-            await message.answer("⚠️ Не спамь! Подожди пару секунд.")
+            await message.answer("⛔ Не спамь! Подожди пару секунд.")
             return
 
     # Запоминаем время текущего запроса пользователя
@@ -75,7 +75,7 @@ async def handle_link(message: types.Message):
     url = message.text.strip() if message.text else ""
 
     if "soundcloud.com" not in url:
-        await message.answer("Отправь мне корректную ссылку из SoundCloud.")
+        await message.answer("🔃 Отправь мне корректную ссылку из SoundCloud.")
         return
 
     status_msg = await message.answer("⚡ Разбираю ссылку и скачиваю трек...")
@@ -125,7 +125,7 @@ async def handle_link(message: types.Message):
 
     except Exception as e:
         print(f"Ошибка при обработке ссылки: {e}")
-        await status_msg.edit_text("❌ Не удалось скачать этот трек. Возможно, он скрыт или удален.")
+        await status_msg.edit_text("🙈 Не удалось скачать этот трек. Возможно, он скрыт или удален.")
 
 
 # --- ВЕБ-СЕРВЕР ДЛЯ ХОСТИНГА (RENDER PING) ---
