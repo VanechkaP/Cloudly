@@ -75,7 +75,7 @@ async def handle_link(message: types.Message):
     url = message.text.strip() if message.text else ""
 
     if "soundcloud.com" not in url:
-        await message.answer("Отправь мне корректную ССЫЛКУ на SoundCloud.")
+        await message.answer("Отправь мне корректную ссылку из SoundCloud.")
         return
 
     status_msg = await message.answer("⚡ Разбираю ссылку и скачиваю трек...")
@@ -135,7 +135,7 @@ async def handle_ping(request):
 
 # --- ЗАПУСК БОТА И ВЕБ-СЕРВЕРА ---
 async def main():
-    print("🚀 Бот успешно запущен в безопасном режиме!")
+    print("Bot successfully started in direct download mode!")
 
     app = web.Application()
     app.router.add_get("/", handle_ping)
