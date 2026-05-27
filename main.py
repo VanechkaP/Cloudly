@@ -43,9 +43,8 @@ def process_thumbnail(image_path: str):
 @dp.message(Command("start"))
 async def start_cmd(message: types.Message):
     await message.answer(
-        f"Привет, {message.from_user.first_name}! ✌️\n\n"
-        "Я простой бот для прямого скачивания музыки из SoundCloud.\n"
-        "Просто отправь мне ссылку на трек!"
+        f"Привет, {message.from_user.first_name}! ✌️\n"
+        "Отправь мне ссылку на трек!"
     )
 
 
