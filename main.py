@@ -110,7 +110,7 @@ async def start_cmd(message: types.Message):
     text_content = (
         f"👋 Привет, {message.from_user.first_name}!\n\n"
         "☁️ Cloudly Bot 2.5\n\n"
-        "Отправь мне ссылку из SoundCloud в чат"
+        "⚡ Отправь мне ссылку из SoundCloud в чат"
     )
     menu_msg = await message.answer(text=text_content, reply_markup=get_main_menu())
     user_menus[message.from_user.id] = menu_msg.message_id
@@ -119,7 +119,7 @@ async def start_cmd(message: types.Message):
 @dp.callback_query(F.data == "menu_info")
 async def press_info(callback: types.CallbackQuery):
     info_text = (
-        "ℹ️ Информация о боте\n\n"
+        "ℹ️ Информация ℹ️\n\n"
         "• Бот умеет скачивать аудио из SoundCloud в формате MP3.\n\n"
         "• Лимит на размер одного файла: 50 МБ (ограничение Telegram).\n\n"
         "• Принимаются только ссылки на синглы (не плейлисты)!"
@@ -132,7 +132,7 @@ async def press_info(callback: types.CallbackQuery):
 @dp.callback_query(F.data == "menu_donate")
 async def press_donate(callback: types.CallbackQuery):
     donate_text = (
-        "✨ Поддержка проекта Cloudly ✨\n\n"
+        "✨ Поддержка проекта ✨\n\n"
         "Если тебе нравится бот и ты хочешь помочь с оплатой хостинга или предложить идею - нажми на кнопку ниже и напиши создателю проекта напрямую!"
     )
     user_menus[callback.from_user.id] = callback.message.message_id
@@ -146,7 +146,7 @@ async def press_cancel(callback: types.CallbackQuery):
     user_menus[callback.from_user.id] = callback.message.message_id
     await callback.message.edit_text(
         "☁️ Cloudly Bot 2.5\n\n"
-        "Отправь мне ссылку из SoundCloud в чат",
+        "⚡ Отправь мне ссылку из SoundCloud в чат",
         reply_markup=get_main_menu()
     )
 
