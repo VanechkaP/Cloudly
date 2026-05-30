@@ -323,7 +323,7 @@ async def handle_link(message: types.Message):
                     if not track_url:
                         continue
 
-                    initial_prefix = f"📂 Альбом: {playlist_title} — {playlist_artist}\n📥 Подключение к файлу {index} из {total_tracks}...\n\n"
+                    initial_prefix = f"📂 Альбом: {playlist_title} — {playlist_artist}\n📥 Подключаюсь к файлу {index} из {total_tracks}...\n\n"
 
                     try:
                         await status_msg.delete()
