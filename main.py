@@ -781,7 +781,7 @@ async def handle_ping(request):
 
 
 async def main():
-    print("Bot started! Error logging schema changed to (Track - Author).")
+    print("Bot started")
 
     app = web.Application()
     app.router.add_get("/", handle_ping)
