@@ -2,6 +2,7 @@ import asyncio
 import os
 import random
 import yt_dlp
+import imageio_ffmpeg
 
 
 def extract_link_info(url: str) -> dict:
@@ -64,6 +65,9 @@ async def download_soundcloud_track(url: str, progress_callback=None, output_dir
                     main_loop
                 )
 
+    # Автоматически получаем путь к бинарнику ffmpeg, встроенному в библиотеку
+    auto_ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': outtmpl_path,
@@ -71,7 +75,7 @@ async def download_soundcloud_track(url: str, progress_callback=None, output_dir
         'quiet': True,
         'progress_hooks': [ydl_progress_hook],
         'nocheckcertificate': True,
-        'ffmpeg_location': 'ffmpeg' if os.name == 'posix' else None,
+        'ffmpeg_location': auto_ffmpeg_path,  # Точный автономный путь
         'http_headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                           '(KHTML, Skin/8.0) Chrome/122.0.0.0 Safari/537.36',

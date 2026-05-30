@@ -5,3 +5,4 @@ pillow
 python-dotenv
 ffmpeg
 ffprobe
+imageio-ffmpeg
